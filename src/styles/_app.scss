@@ -1,0 +1,188 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.cont {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-aspect-ratio: 1/1) {
+  .cont {
+    grid-template-columns: none;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+
+.map-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  border: 3px solid salmon;
+  overflow: hidden;
+
+	position: relative;
+}
+
+#map {
+  width: 100%;
+	height: 100%;
+	user-select: none;
+}
+
+.round-template{
+	width: 100%;
+	height: 100%;
+	display: none;
+	position: absolute;
+	top: 0;
+	z-index: 1000; /* High enough to overlay map */
+  pointer-events: none; 
+}
+.watch-mode, .map-mode{
+  font-size: 20px;
+  padding: 10px;
+	user-select: none;
+}
+
+.center-marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  // color: #ffffff;
+  color: salmon;
+  font-size: 20px;
+  font-weight: 600;
+  pointer-events: none;
+  z-index: 2000;
+  user-select: none;
+}
+
+
+.custom-red-dot,
+.custom-orange-dot,
+.custom-yellow-dot,
+.custom-green-dot,
+.custom-blue-dot,
+.custom-magenta-dot,
+.custom-brown-dot,
+.custom-pink-dot,
+.custom-lime-dot,
+.custom-teal-dot,
+.custom-indigo-dot
+
+
+// .custom-cyan-dot,      
+
+// .custom-olive-dot,    
+
+// .custom-navy-dot,      
+
+// .custom-gold-dot,     
+// .custom-silver-dot,    
+// .custom-coral-dot,     
+
+// .custom-peru-dot 
+
+ {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-sizing: border-box;
+}
+
+.custom-red-dot {
+  background-color: red;
+}
+
+.custom-orange-dot {
+  background-color: rgb(184, 123, 11);
+}
+
+.custom-yellow-dot {
+  background-color: yellow;
+}
+
+.custom-green-dot {
+  background-color: green;
+}
+
+.custom-blue-dot {
+  background-color: blue;
+}
+
+.custom-magenta-dot {
+  background-color: magenta;
+}
+
+.custom-brown-dot {
+  background-color: brown;
+}
+
+.custom-pink-dot {
+  background-color: pink;
+}
+
+.custom-lime-dot {
+  background-color: lime;
+ 
+}
+
+.custom-teal-dot {
+  background-color: rgb(8, 163, 163);
+
+}
+
+.custom-indigo-dot {
+  background-color: rgb(143, 12, 237);
+
+}
+
+
+// new colors
+
+// .custom-cyan-dot      { background-color: cyan; }
+
+// .custom-olive-dot     { background-color: olive; }
+
+// .custom-navy-dot      { background-color: navy; }
+
+// .custom-gold-dot      { background-color: gold; }
+// .custom-silver-dot    { background-color: silver; }
+// .custom-coral-dot     { background-color: coral; }
+
+// .custom-peru-dot      { background-color: peru; }
+
+     
+
+
+     
+
+
+
+
+
+
+.data-cont{
+	 overflow: auto;    
+  max-width: 100%;   
+  max-height: 100%;  
+}
+
+.version{
+	color: red;
+}
