@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 
 
 export default defineConfig({
-	base: '/up/',
+	base: '/up2/',
 	plugins: [react()],
 })

@@ -61,21 +61,29 @@ export function App() {
     if (mapContRef.current) observer.observe(mapContRef.current);
     return () => observer.disconnect();
   }, []);
+  //ебаны в рот, а так...
+  // ResizeObserver это API бразера
+  // observer.observe(mapContRef.current) - вызывает его для
+  // DOM элемента mapContRef.current
+  // ЧТО-БЫ в конечном итоге устновть  setCircleSize(Math.min(width, height))
+  // который затем будет использоваться для установки правильных размеров
+  // таким образом устновка  setCircleSize(Math.min(width, height)); и есть
+  // суть данного useEffect
 
   useEffect(() => {
     if (!mapRef.current) return;
 
     const map = L.map(mapRef.current, {
       maxBounds: [
-        [-85, -180],
-        [85, 180],
+        [-85, -Infinity],
+        [85, Infinity],
       ],
       zoom: 2,
       minZoom: 2,
       maxBoundsViscosity: 1.0,
       zoomSnap: 0,
       zoomDelta: 0.1,
-      // }).setView([20, 0], 2);
+      worldCopyJump: true,
     }).setView([0, 0], 2);
 
     leafletMapRef.current = map;
@@ -149,48 +157,6 @@ export function App() {
       }
     });
   }, [nearSatBase, searchMode, colorClasses]);
-
-  //   function watchMode() {
-
-  //   if (!beepAudioRef.current) {
-  //     const audio = new Audio(radarBeep);
-  //     audio.muted = true;
-
-  //     audio
-  //       .play()
-  //       .then(() => {
-  //         audio.pause();
-  //         audio.currentTime = 0;
-  //         audio.muted = false;
-  //         beepAudioRef.current = audio;
-  //         audioEnabledRef.current = true;
-  //       })
-  //       .catch(() => {});
-  //   } else {
-  //     audioEnabledRef.current = true;
-  //   }
-
-  //   colorIndexRef.current = 0;
-  //   satColorMapRef.current = {};
-  //   setSearchMode(true);
-
-  //   if (leafletMapRef.current) {
-  //     leafletMapRef.current.setZoom(
-  //       Math.log2(
-  //         (40075017 * Math.cos((centerCoords.lat * Math.PI) / 180)) /
-  //           (256 * (200000 / circleSize))
-  //       )
-  //     );
-
-  //     leafletMapRef.current.dragging.disable();
-  //     leafletMapRef.current.scrollWheelZoom.disable();
-  //     leafletMapRef.current.doubleClickZoom.disable();
-  //     leafletMapRef.current.boxZoom.disable();
-  //     leafletMapRef.current.keyboard.disable();
-  //     leafletMapRef.current.touchZoom.disable();
-  //     leafletMapRef.current.tap?.disable();
-  //   }
-  // }
 
   function watchMode() {
     if (!beepAudioRef.current) {
